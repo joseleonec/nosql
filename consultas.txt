@@ -1,13 +1,22 @@
 MATCH (n)
 DETACH DELETE n
 
+
+USING PERIODIC COMMIT 500
+LOAD CSV WITH HEADERS FROM "https://github.com/joseleonec/nosql/blob/master/datos.csv" AS csvLine
+CREATE (c:Cliente {idCliente: toInteger(csvLine.idCliente), edad: toInteger(csvLine.edad) })
+CREATE (s:Solicitud {idSolicitud: toInteger(csvLine.idSolicitud), fecha: csvLine.fecha, fechaCompra: csvLine.fechaCompra })
+CREATE (n:Negociacion {idNegociacion: toInteger(csvLine.idNegociacion), estado: csvLine.estado})
+CREATE (c)-[:realiza]->(s)
+CREATE (s)-[:implica]->(n)
+
 LOAD CSV WITH HEADERS FROM "https://github.com/joseleonec/nosql/blob/master/cliente.csv" AS csvLine
 CREATE (c:Cliente {idCliente: toInteger(csvLine.idCliente), edad: toInteger(csvLine.edad) })
 
 LOAD CSV WITH HEADERS FROM "https://github.com/joseleonec/nosql/blob/master/solicitud.csv" AS csvLine
-CREATE (s:Solicitud {idSolicitud: toInteger(csvLine.idSolicitud), fecha: csvLine.fecha, fechaCompra:csvLine.fechaCompra })
+CREATE (s:Solicitud {idSolicitud: toInteger(csvLine.idSolicitud), fecha: csvLine.fecha, fechaCompra: csvLine.fechaCompra })
 
-USING PERIODIC COMMIT
+USING PERIODIC COMMIT 500
 LOAD CSV WITH HEADERS FROM "https://github.com/joseleonec/nosql/blob/master/negociacion.csv" AS csvLine
 CREATE (n:Negociacion {idNegociacion: toInteger(csvLine.idNegociacion), estado: csvLine.estado})
 
@@ -75,3 +84,8 @@ CREATE
   (`0`)-[:`significa` ]->(`3`),
   (`3`)-[:`llega` ]->(`4`),
   (`4`)-[:`esta_en` ]->(`5`)
+
+USING PERIODIC COMMIT 500
+LOAD CSV WITH HEADERS FROM "https://github.com/joseleonec/nosql/blob/master/datos.csv" AS csvLine
+MATCH (person:Person { id: toInt(csvLine.personId)}),(movie:Movie { id: toInt(csvLine.movieId)})
+CREATE (person)-[:PLAYED { role: csvLine.role }]->(movie)
