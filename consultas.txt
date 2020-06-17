@@ -1,0 +1,78 @@
+LOAD CSV WITH HEADERS FROM "file:///G:/Mi unidad/Archivos/INGENIERIA/Cursos/6o Ciclo/BASE DE DATOS II/DEBERES/Proyecto/NoSQL/cliente.csv" AS csvLine
+CREATE (c:Cliente {idCliente: toInteger(csvLine.idCliente), edad: toInteger(csvLine.edad) })
+
+LOAD CSV WITH HEADERS FROM "file:///G:/Mi unidad/Archivos/INGENIERIA/Cursos/6o Ciclo/BASE DE DATOS II/DEBERES/Proyecto/NoSQL/solicitud.csv" AS csvLine
+CREATE (s:Solicitud {idSolicitud: toInteger(csvLine.idSolicitud), fecha: csvLine.fecha, fechaCompra:csvLine.fechaCompra })
+
+LOAD CSV WITH HEADERS FROM "file:///C:/Users/Estudiante/Desktop/nosql/negociacion.csv" AS csvLine
+CREATE (n:Negociacion {idNegociacion: toInteger(csvLine.idNegociacion), estado: csvLine.estado})
+
+file:///G:/Mi%20unidad/Archivos/INGENIERIA/Cursos/6o%20Ciclo/BASE%20DE%20DATOS%20II/DEBERES/Proyecto/NoSQL/
+
+file:///C:/Users/Estudiante/Desktop/nosql/
+C:/Users/Estudiante/Desktop\nosql
+
+CREATE 
+  (`0` :Factura {id:'1'}) ,
+  (`1` :Producto {nombre:'ipad',costo:'100',peso:'1Kg'}) ,
+  (`3` :Envio {id:'1'}) ,
+  (`4` :Ubicacion {Calle:'Av Loja'}) ,
+  (`5` :Parroquia {id:'1',nombre:'Yanuncay'}) ,}
+  (`1`)-[:`aparece` ]->(`0`),
+  (`0`)-[:`significa` ]->(`3`),
+  (`3`)-[:`llega` ]->(`4`),
+  (`4`)-[:`esta_en` ]->(`5`)
+
+CREATE 
+  (`0` :Factura {id:'2'}) ,
+  (`1` :Producto {nombre:'arroz',costo:'1',peso:'1Kg'}) ,
+  (`3` :Envio {id:'2'}) ,
+  (`4` :Ubicacion {Calle:'Av Loja'}) ,
+  (`5` :Parroquia {id:'1',nombre:'Yanuncay'}) ,}
+  (`1`)-[:`aparece` ]->(`0`),
+  (`0`)-[:`significa` ]->(`3`),
+  (`3`)-[:`llega` ]->(`4`),
+  (`4`)-[:`esta_en` ]->(`5`)
+CREATE 
+  (`0` :Factura {id:'3'}) ,
+  (`1` :Producto {nombre:'ipad',costo:'100',peso:'1Kg'}) ,
+  (`3` :Envio {id:'3'}) ,
+  (`4` :Ubicacion {Calle:'Av Loja'}) ,
+  (`5` :Parroquia {id:'1',nombre:'Yanuncay'}) ,}
+  (`1`)-[:`aparece` ]->(`0`),
+  (`0`)-[:`significa` ]->(`3`),
+  (`3`)-[:`llega` ]->(`4`),
+  (`4`)-[:`esta_en` ]->(`5`)
+
+CREATE 
+  (`0` :Factura {id:'4'}) ,
+  (`1` :Producto {nombre:'ipad',costo:'100',peso:'1Kg'}) ,
+  (`3` :Envio {id:'4'}) ,
+  (`4` :Ubicacion {Calle:'Av Loja'}) ,
+  (`5` :Parroquia {id:'1',nombre:'Yanuncay'}) ,}
+  (`1`)-[:`aparece` ]->(`0`),
+  (`0`)-[:`significa` ]->(`3`),
+  (`3`)-[:`llega` ]->(`4`),
+  (`4`)-[:`esta_en` ]->(`5`)
+
+CREATE 
+  (`0` :Factura {id:'5'}) ,
+  (`1` :Producto {nombre:'ipad',costo:'100',peso:'1Kg'}) ,
+  (`3` :Envio {id:'5'}) ,
+  (`4` :Ubicacion {Calle:'Av Loja'}) ,
+  (`5` :Parroquia {id:'1',nombre:'Yanuncay'}) ,}
+  (`1`)-[:`aparece` ]->(`0`),
+  (`0`)-[:`significa` ]->(`3`),
+  (`3`)-[:`llega` ]->(`4`),
+  (`4`)-[:`esta_en` ]->(`5`)
+
+CREATE 
+  (`0` :Factura {id:'6'}) ,
+  (`1` :Producto {nombre:'ipad',costo:'100',peso:'1Kg'}) ,
+  (`3` :Envio {id:'6'}) ,
+  (`4` :Ubicacion {Calle:'Av Loja'}) ,
+  (`5` :Parroquia {id:'1',nombre:'Yanuncay'}) ,}
+  (`1`)-[:`aparece` ]->(`0`),
+  (`0`)-[:`significa` ]->(`3`),
+  (`3`)-[:`llega` ]->(`4`),
+  (`4`)-[:`esta_en` ]->(`5`)
