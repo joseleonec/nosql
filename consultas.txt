@@ -1,8 +1,9 @@
-USING PERIODIC COMMIT
+MATCH (n)
+DETACH DELETE n
+
 LOAD CSV WITH HEADERS FROM "https://github.com/joseleonec/nosql/blob/master/cliente.csv" AS csvLine
 CREATE (c:Cliente {idCliente: toInteger(csvLine.idCliente), edad: toInteger(csvLine.edad) })
 
-USING PERIODIC COMMIT
 LOAD CSV WITH HEADERS FROM "https://github.com/joseleonec/nosql/blob/master/solicitud.csv" AS csvLine
 CREATE (s:Solicitud {idSolicitud: toInteger(csvLine.idSolicitud), fecha: csvLine.fecha, fechaCompra:csvLine.fechaCompra })
 
